@@ -3,6 +3,8 @@ bug:
 documentation:
   - README.md
 enhancement:
-  - ENH:
+  - 'ENH:'
+duplicate:
+  - 'STYLE:'
 area:data:
   - data/*
