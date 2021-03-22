@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Labels PRs based on title. Must be run in a github action with the
-pull_request event. Removes labels if no matches are found. Adapted from
+pull_request event. Removes title labels if no matches are found. Adapted from
 scikit-learn."""
 from ghapi.all import context_github
 from ghapi.all import GhApi
@@ -45,6 +45,8 @@ else:
 
     # Get the title labels to be removed
     labels_to_remove = list(set(title_labels).intersection(labels_on_issue))
+
+    print(labels_to_remove)
 
     # Remove the labels
     for label in labels_to_remove:
