@@ -2,9 +2,5 @@ bug:
   - files/*
 documentation:
   - README.md
-enhancement:
-  - 'ENH:'
-duplicate:
-  - 'STYLE'
 area:data:
   - data/*
