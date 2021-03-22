@@ -1,5 +1,7 @@
-name: "Pull Request Labeler"
-on: pull_request
+name: label pull request on paths
+on:
+  pull_request:
+    types: [opened, edited]
 
 jobs:
   triage:
