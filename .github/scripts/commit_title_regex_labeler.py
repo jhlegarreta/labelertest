@@ -12,8 +12,8 @@ pull_request = context_github.event.pull_request
 title = pull_request.title
 
 regex_to_labels = [
-    (r"\bDOC:\b", "documentation"),
-    (r"\bSTYLE:\b", "duplicate")
+    (r"\bDOC: \b", "documentation"),
+    (r"\bSTYLE: \b", "duplicate")
 ]
 
 labels_to_add = [
