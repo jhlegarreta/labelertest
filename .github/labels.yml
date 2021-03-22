@@ -1,2 +1,4 @@
 bug:
   - ./*
+documentation:
+  - README.md
