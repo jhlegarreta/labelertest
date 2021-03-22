@@ -5,6 +5,6 @@ documentation:
 enhancement:
   - 'ENH:'
 duplicate:
-  - 'STYLE:'
+  - 'STYLE'
 area:data:
   - data/*
