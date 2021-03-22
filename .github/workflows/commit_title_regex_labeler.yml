@@ -15,6 +15,6 @@ jobs:
     - name: Install ghapi
       run: pip install -Uq ghapi
     - name: Label pull request
-      run: python .github/scripts/label_title_regex.py
+      run: python .github/scripts/commit_title_regex_labeler.py
       env:
         CONTEXT_GITHUB: ${{ toJson(github) }}
