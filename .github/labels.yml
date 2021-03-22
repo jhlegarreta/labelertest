@@ -1,4 +1,8 @@
 bug:
-  - ./*
+  - files/*
 documentation:
   - README.md
+enhancement:
+  - ENH:
+area:data:
+  - data/*
