@@ -1,10 +1,5 @@
 name: "Pull Request Labeler"
-<<<<<<< HEAD
 on: [pull_request]
-=======
-on:
-- pull_request_target
->>>>>>> origin/main
 
 jobs:
   triage:
