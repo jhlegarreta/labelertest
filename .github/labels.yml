@@ -6,5 +6,5 @@ type:documentation:
 area:data:
   - data/*
 type:wontfix:
-  - WONTFIX: 
+  - "(WONTFIX: )"
   - wontfix/*
