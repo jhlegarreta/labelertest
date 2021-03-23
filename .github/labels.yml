@@ -5,3 +5,5 @@ type:documentation:
   - README.md
 area:data:
   - data/*
+type:wontfix:
+  - WONTFIX:
