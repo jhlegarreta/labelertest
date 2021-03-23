@@ -3,8 +3,11 @@ bug:
   - files/*
 type:documentation:
   - README.md
+  - documentation
 area:data:
   - data/*
 type:wontfix:
-  - data/*
+  - WONTFIX:
   - files/*
+enhancement:
+  - data/*
