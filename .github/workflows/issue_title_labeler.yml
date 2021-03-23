@@ -1,0 +1,20 @@
+name: label issue on title
+on:
+  issue:
+    types: [opened, edited]
+
+jobs:
+
+  labeler:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'
+    - name: Install ghapi
+      run: pip install -Uq ghapi
+    - name: Label pull request
+      run: python .github/scripts/issue_title_regex_labeler.py
+      env:
+        CONTEXT_GITHUB: ${{ toJson(github) }}
