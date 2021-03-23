@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 """Labels PRs based on title. Must be run in a github action with the
-pull_request event. Removes title labels if no matches are found. Adapted from
-scikit-learn."""
+pull_request event. Does not remove any label since a PR might contain multiple
+commits with different prefixes and the user might have added them manually.
+Adapted from scikit-learn."""
 from ghapi.all import context_github
 from ghapi.all import GhApi
 from ghapi.all import user_repo
@@ -16,7 +17,7 @@ title = pull_request.title
 
 # List of PR title and label pairs
 regex_to_title_labels = [
-    (r"\bDOC: \b", "documentation"),
+    (r"\bDOC: \b", "type:documentation"),
     (r"\bSTYLE: \b", "duplicate")
 ]
 
@@ -26,29 +27,8 @@ title_labels_to_add = [
     if re.search(regex, title)
 ]
 
-print(title_labels_to_add)
-
-api = GhApi(owner=owner, repo=repo, token=github_token())
-
-# Add labels if matches were found; otherwise remove the appropriate PR title
-# labels
+# Add labels if matches were found
 if title_labels_to_add:
+
+    api = GhApi(owner=owner, repo=repo, token=github_token())
     api.issues.add_labels(pull_request.number, labels=title_labels_to_add)
-else:
-    # Get the available title labels
-    title_labels = [label for _, label in regex_to_title_labels]
-
-    # Find the labels on PR
-    labels_on_issue = api.issues.list_labels_on_issue(pull_request.number)
-
-    print(labels_on_issue)
-
-    # Get the title labels to be removed
-    labels_to_remove = list(set(title_labels).intersection(labels_on_issue))
-
-    print(labels_to_remove)
-
-    # Remove the labels
-    for label in labels_to_remove:
-        labels_on_issue = api.issues.remove_label(
-            pull_request.number, name=labels=label)

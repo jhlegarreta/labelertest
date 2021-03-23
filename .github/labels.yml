@@ -1,6 +1,6 @@
 bug:
   - files/*
-documentation:
+type:documentation:
   - README.md
 area:data:
   - data/*
