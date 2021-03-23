@@ -1,13 +1,12 @@
 # Path labels
 bug:
   - files/*
+type:wontfix:
+  - WONTFIX:
+enhancement:
+  - data/*
+area:data:
+  - data/*
 type:documentation:
   - README.md
   - documentation
-area:data:
-  - data/*
-type:wontfix:
-  - WONTFIX:
-  - files/*
-enhancement:
-  - data/*
