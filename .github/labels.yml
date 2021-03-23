@@ -2,7 +2,7 @@
 bug:
   - files/*
 type:wontfix:
-  - WONTFIX:
+  - WONTFIX
 enhancement:
   - data/*
 area:data:
