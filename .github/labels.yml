@@ -8,8 +8,8 @@ enhancement:
 area:data:
   - data/*
 type:documentation:
-  - (README.md)
   - data/*
   - documentation/*
+  - README.md
 documentation:
   - mydocumentation
