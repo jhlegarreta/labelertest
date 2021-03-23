@@ -13,7 +13,7 @@ jobs:
         # Secret token needed (not sure which permissions though)
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
         # File with label/regex match dictionary
-        configuration-path: ['.github/issue_labels.yml', '.github/pr_labels.yml']
+        configuration-path: .github/issue_labels.yml
         # The issues opened before this date will be ignored
         # not-before: 2020-12-24T00:00:00Z
         # This can be increased if the dictionary undergoes a breaking change

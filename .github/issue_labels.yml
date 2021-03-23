@@ -2,3 +2,5 @@ type:wontfix:
   - WONTFIX:
 type:documentation:
   - DOC:
+enhancement:
+  - data/*
