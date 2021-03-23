@@ -1,6 +1,6 @@
 type:wontfix:
-  - WONTFIX:
+  - WONTFIX
 type:documentation:
-  - DOC:
+  - DOC
 enhancement:
   - data/*
