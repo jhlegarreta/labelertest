@@ -1,6 +1,6 @@
 name: label issue on title
 on:
-  issue:
+  issues:
     types: [opened, edited]
 
 jobs:
