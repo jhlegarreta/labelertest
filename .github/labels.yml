@@ -7,3 +7,4 @@ area:data:
   - data/*
 type:wontfix:
   - WONTFIX:
+  - wontfix/*
