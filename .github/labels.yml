@@ -1,8 +1,8 @@
 # Path labels
 bug:
   - files/*
-type:wontfix:
-  - WONTFIX:
+#type:wontfix:
+#  - WONTFIX:
 enhancement:
   - data/*
 area:data:
