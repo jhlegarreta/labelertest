@@ -7,7 +7,9 @@ from ghapi.all import context_github
 from ghapi.all import GhApi
 from ghapi.all import user_repo
 from ghapi.all import github_token
+import os
 import re
+import yaml
 
 owner, repo = user_repo()
 
@@ -15,11 +17,22 @@ owner, repo = user_repo()
 pull_request = context_github.event.pull_request
 title = pull_request.title
 
+filebasename = 'title_to_labels_regex.yml'
+file = os.path.join(os.path.dirname(
+        os.path.dirname(os.path.realpath(__file__))), filebasename)
+
+with open(file) as f:
+    conf = yaml.safe_load(f.read())
+
+word_boundary = r"\b"
+regex_to_title_labels = [(word_boundary + key + word_boundary, val)
+             for key, val in conf.items()]
+
 # List of PR title and label pairs
-regex_to_title_labels = [
-    (r"\bDOC: \b", "type:documentation"),
-    (r"\bSTYLE: \b", "duplicate")
-]
+#regex_to_title_labels = [
+#    (r"\bDOC: \b", "type:documentation"),
+#    (r"\bSTYLE: \b", "duplicate")
+#]
 
 # Find PR title and label matches
 title_labels_to_add = [
