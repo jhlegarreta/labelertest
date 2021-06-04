@@ -12,8 +12,10 @@ jobs:
     - uses: actions/setup-python@v2
       with:
         python-version: '3.9'
-    - name: Install ghapi
-      run: pip install -Uq ghapi
+    - name: Install requirements
+      run:
+        pip install -Uq ghapi
+        pip instal pyyaml
     - name: Label pull request
       run: python .github/scripts/pr_title_regex_labeler.py
       env:
