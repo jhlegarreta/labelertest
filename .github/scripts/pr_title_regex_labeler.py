@@ -55,8 +55,8 @@ if title_labels_to_add:
         api.issues.add_labels(
             accept="application/vnd.github.v3+json",
             issue_number=pull_request.number, labels=title_labels_to_add)
-    except HTTPError as e:
+    except Exception as e:
         print("owner: {}".format(owner))
         print("repo: {}".format(repo))
-        print("Error info: {}".format(e))
+        print("Exception info: {}".format(e))
         print("api: {}".format(api))
