@@ -7,6 +7,9 @@ from ghapi.all import context_github
 from ghapi.all import GhApi
 from ghapi.all import user_repo
 from ghapi.all import github_token
+
+from requests import HTTPError
+
 import os
 import re
 import yaml
@@ -16,6 +19,9 @@ owner, repo = user_repo()
 # Retrieve the PR data
 pull_request = context_github.event.pull_request
 title = pull_request.title
+
+print("Title: {}".format(title))
+print("PR number: {}".format(pull_request.number))
 
 filebasename = 'title_to_labels_regex.yml'
 file = os.path.join(os.path.dirname(
@@ -42,6 +48,13 @@ title_labels_to_add = [
 
 # Add labels if matches were found
 if title_labels_to_add:
+    print("Labels to add: {}".format(title_labels_to_add))
 
     api = GhApi(owner=owner, repo=repo, token=github_token())
-    api.issues.add_labels(pull_request.number, labels=title_labels_to_add)
+    try:
+        api.issues.add_labels(issue_number=pull_request.number, labels=title_labels_to_add)
+    except HTTPError as e:
+        print("owner: {}".format(owner))
+        print("repo: {}".format(repo))
+        print("Error info: {}".format(e))
+        print("api: {}".format(api))

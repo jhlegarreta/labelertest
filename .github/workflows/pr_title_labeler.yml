@@ -16,6 +16,8 @@ jobs:
       run:
         pip install -Uq ghapi
         pip install pyyaml
+        pip --version
+        pip list
     - name: Label pull request
       run: python .github/scripts/pr_title_regex_labeler.py
       env:
