@@ -8,8 +8,6 @@ from ghapi.all import GhApi
 from ghapi.all import user_repo
 from ghapi.all import github_token
 
-from requests import HTTPError
-
 import os
 import re
 import yaml
@@ -49,14 +47,11 @@ title_labels_to_add = [
 # Add labels if matches were found
 if title_labels_to_add:
     print("Labels to add: {}".format(title_labels_to_add))
+    print("owner: {}".format(owner))
+    print("repo: {}".format(repo))
 
     api = GhApi(owner=owner, repo=repo, token=github_token())
-    try:
-        api.issues.add_labels(
+    repl = api.issues.add_labels(
             accept="application/vnd.github.v3+json",
             issue_number=pull_request.number, labels=title_labels_to_add)
-    except Exception as e:
-        print("owner: {}".format(owner))
-        print("repo: {}".format(repo))
-        print("Exception info: {}".format(e))
-        print("api: {}".format(api))
+    print("Reply: {}".format(repl))
