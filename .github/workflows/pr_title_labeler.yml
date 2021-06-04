@@ -13,7 +13,8 @@ jobs:
       with:
         python-version: '3.9'
     - name: Install requirements
-      run:
+      run: |
+        python -m pip install --upgrade --user pip
         pip install -Uq ghapi
         pip install pyyaml
         pip --version
