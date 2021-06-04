@@ -52,7 +52,9 @@ if title_labels_to_add:
 
     api = GhApi(owner=owner, repo=repo, token=github_token())
     try:
-        api.issues.add_labels(issue_number=pull_request.number, labels=title_labels_to_add)
+        api.issues.add_labels(
+            accept="application/vnd.github.v3+json",
+            issue_number=pull_request.number, labels=title_labels_to_add)
     except HTTPError as e:
         print("owner: {}".format(owner))
         print("repo: {}".format(repo))
