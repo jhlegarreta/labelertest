@@ -17,6 +17,7 @@ jobs:
         python -m pip install --upgrade --user pip
         pip install -Uq ghapi
         pip install pyyaml
+        pip install requests
         pip --version
         pip list
     - name: Label pull request
