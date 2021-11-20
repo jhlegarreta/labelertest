@@ -13,3 +13,12 @@ type:documentation:
   - README.md
 documentation:
   - mydocumentation
+area:Book:
+  files:
+    - "SoftwareGuide/Latex/*.tex"
+type:BookStyle:
+  files:
+    - "Latex/*"
+type:BookStyle:
+  files:
+    - "^Latex/[^/]*"
