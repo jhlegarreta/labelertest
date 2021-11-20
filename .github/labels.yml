@@ -18,7 +18,4 @@ area:Book:
     - "SoftwareGuide/Latex/*.tex"
 type:BookStyle:
   files:
-    - "Latex/*"
-type:BookStyle:
-  files:
     - "^Latex/[^/]*"
