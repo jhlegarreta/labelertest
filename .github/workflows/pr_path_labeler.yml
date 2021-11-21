@@ -8,6 +8,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: srvaroa/labeler@v0.8
-      with:
-        repo-token: "${{ secrets.GITHUB_TOKEN }}"
-        configuration-path: .github/labels.yml
+      env:
+        GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
